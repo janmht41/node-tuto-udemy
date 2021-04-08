@@ -9,8 +9,9 @@ const forecast = (latitude, longitude, callback)=>{
         }else if(body.error){
             callback('Coordinates incorrect/not found', undefined)
         }else{
-            const str = body.current.weather_descriptions[0]+'. It is currently '+body.current.temperature+' degrees celsius and feels like '+body.current.feelslike+' degrees celsius'
-            callback(undefined, str)
+            const str = body.current.weather_descriptions[0]+'. It is currently '+body.current.temperature+' degrees celsius and feels like '+body.current.feelslike+' degrees celsius.\n'
+            const str2='The Humidity is '+body.current.humidity+'%'
+            callback(undefined, str+str2)
         }
     })
 }
